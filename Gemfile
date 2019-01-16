@@ -75,3 +75,5 @@ gem 'jquery-rails'
 gem 'name_of_person', '~> 1.1'
 
 gem 'local_time', '~> 2.1'
+
+gem 'gritter', '~> 1.2'

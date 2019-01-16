@@ -12,5 +12,8 @@
   <body>
   <%= render 'layouts/nav' %>
     <%= yield %>
+
+    <%= js add_gritter(flash[:notice], title: "FSFdb", sticky: false, time: 10000) %>
   </body>
 </html>
+ 
