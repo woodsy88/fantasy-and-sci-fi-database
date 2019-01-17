@@ -19,3 +19,15 @@
 
  @import "_fonts.scss";
  @import "_colors.scss";
+
+
+
+ .font-row {
+   display: flex;
+   flex-direction: column;
+   padding-left: 50px;
+ }
+
+ .font-row-display-none {
+   display: none;
+ }
