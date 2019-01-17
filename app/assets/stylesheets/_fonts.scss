@@ -1,0 +1,181 @@
+// 3 Keys to Fonts
+// size
+// color
+// weight
+// font-family
+@import "_colors.scss";
+
+
+// font-family
+
+.ovo {
+  font-family: "Ovo";
+}
+
+.no-decor {
+  text-decoration: none !important;
+}
+
+// line-heights
+
+.sm-l-h {
+  line-height: 1;
+}
+
+.med-l-h {
+  line-height: 1.5;
+}
+
+//  Heading Spacing
+
+.heading-spacing-m {
+  margin-bottom: .25rem;
+}
+
+// WEIGHTS
+.light {
+  font-weight: 300;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.x-bold {
+  font-weight: 700;
+}
+
+.xx-bold {
+  font-weight: 800;
+}
+
+// Size
+
+.xs-8 {
+  font-size: 12px;
+}
+
+
+.small-12 {
+  font-size: 12px;
+}
+
+.small-14 {
+  font-size: 14px;
+}
+
+.medium-16 {
+  font-size: 16px;
+}
+
+.medium-18 {
+  font-size: 18px;
+}
+
+.medium-20 {
+  font-size: 20px;
+}
+
+.large-24 {
+  font-size: 24px;
+}
+
+.large-28 {
+  font-size: 28px;
+}
+
+.large-32 {
+  font-size: 32px;
+}
+
+.large-42 {
+  font-size: 42px;
+}
+
+.x-large-52 {
+  font-size: 52px;
+}
+
+.x-large-65 {
+  font-size: 65px;
+}
+
+
+.hero-text {
+  @extend .light;
+  @extend .x-large-65;
+}
+
+.sub-hero-text {
+  color: $grey1-700;
+  @extend .large-32;
+  @extend .light;
+}
+
+.header-1 {
+  @extend .regular;
+  @extend .large-42;
+
+}
+
+.header-2 {
+  @extend .ovo;
+  @extend .x-bold;
+  @extend .large-32;
+
+}
+
+.header-3 {
+  @extend .light;
+  @extend .large-32;
+
+}
+
+.header-4 {
+  @extend .bold;
+  @extend .large-28;
+  @extend .sm-l-h;
+}
+
+.header-5 {
+  @extend .light;
+  @extend .large-24;
+  @extend .sm-l-h;
+  @extend .med-l-h;
+}
+
+.header-6 {
+  @extend .regular;
+  @extend .medium-20;
+  @extend .med-l-h;
+}
+
+.header-7 {
+
+  @extend .x-bold;
+  @extend .medium-18;
+  @extend .no-decor;
+
+}
+
+// Font colors
+
+.grey-md-text {
+  color: $grey1-700;
+}
+
+.grey-light-text {
+  color: $grey1-600
+}
+
+.blue-700 {
+  color: $blue-700;
+}
+
+.black-font {
+  color: $tilda-black;
+}

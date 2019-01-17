@@ -7,13 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Ovo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">    
+      
   </head>
 
   <body>
-  <%= render 'layouts/nav' %>
+  <%= render 'shared/nav' %>
     <%= yield %>
 
     <%= js add_gritter(flash[:notice], title: "FSFdb", sticky: false, time: 10000) %>
+
+     <%= render 'shared/header_template' %>
   </body>
 </html>
+ 
+
  
