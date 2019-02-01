@@ -1,0 +1,7 @@
+<%= @category.name %>
+
+<% if @category.books.any? %>
+  <% @category.books.each do |book|%>
+      <%= book.title %>
+  <% end %>
+<% end %>

@@ -1,22 +1,33 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    @books = Book.all
+    if params[:category].blank?
+      @books = Book.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @books = Book.where(:category_id => @category_id)
+    end
   end
   
   def new
     @book = Book.new
+    @categories = Category.all.map{ |category| [ category.name, category.id ] }
   end
 
   def edit
+    authorize @book
+
+    @categories = Category.all.map{ |category| [ category.name, category.id ] }
   end
 
   def create
 		@book = Book.new(book_params)
-		@book.user_id = current_user.id
+    @book.user_id = current_user.id
+    
+    @book.category_id = params[:category_id]
 
 		if @book.save
 			redirect_to @book, notice: 'Your book was created successfully'
@@ -26,6 +37,10 @@ class BooksController < ApplicationController
   end
 
   def update
+    authorize @book
+
+    @book.category_id = params[:category_id]
+
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -38,6 +53,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    authorize @book
     @book.destroy
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
@@ -55,6 +71,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :description)
+      params.require(:book).permit(:title, :description, :category_id)
     end
 end

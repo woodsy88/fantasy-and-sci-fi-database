@@ -16,7 +16,7 @@
   <body>
     <%= render 'shared/nav' %>
     <%= yield %>
-    <%= js add_gritter(flash[:notice], title: "FSFdb", sticky: false, time: 10000) %>
+    <%= render 'shared/alerts' %>
 
      <%= render 'shared/header_template' %>
   </body>

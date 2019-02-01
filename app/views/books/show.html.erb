@@ -1,4 +1,24 @@
-<div class="card">
-  <%= @book.title %>
-  <%= @book.description %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h2> <%= @book.title %></h2>
+          <%= @book.description %>
+          <% if @book.category.present?  %>
+	            <strong><%= @book.category.name %></strong>
+	          <% end %>          
+        </div>
+        <% if user_signed_in? %>
+          <% if @book.user_id == current_user.id  %>
+            <div class="card-footer">
+              <%= link_to "Back", books_path, class: "btn btn-default" %>
+              <%= link_to "edit", edit_book_path(@book), class: "btn btn-primary"  %>
+              <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            </div>
+          <% end %>  
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
