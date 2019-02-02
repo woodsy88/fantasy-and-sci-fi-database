@@ -17,7 +17,9 @@
 	                <div class="<%= 'active' if params[:category] == category.name %>">
 	                  <%= link_to category.name, books_path(category: category.name), class: "dropdown-item" %>
 	                </div>
-	          <% end %>          
+	          <% end %> 
+                <div class="dropdown-divider"></div>
+                <%= link_to 'New Category', new_category_path, class: "dropdown-item" %>       
 	      </div>
 	    </li>
 

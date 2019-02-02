@@ -1,0 +1,38 @@
+<div class="container">
+  
+<div class="row justify-content-md-center">
+<div class="col-md-8">
+    <div class="card">
+    <div class="card-body">
+          <%= render 'shared/errors', obj: @review %>
+          <%= form_for [@book, @review], class: "form-horizontal" do |f| %>
+          
+            <div class="form-group">
+              <span class="control-label">Rate Book</span>
+              <div id="review-rating"></div>
+            </div>
+          
+              <div class="form-group">
+                  <span class="control-label">Write Review</span>
+                  <%= f.text_area :comment, rows: 10, class: "form-control", :rows => "10" %>
+              </div>
+          
+              <div class="panel-footer section-padding-sm">
+                  <%= f.submit 'Save', class: "btn btn-primary" %>
+              </div>
+          <% end %>
+          <%= link_to 'Cancel', book_path(@book), class: "text-muted" %>
+    </div>
+    </div>
+</div>
+  </div>
+</div>
+
+
+
+<script>
+    $('#review-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+    });
+</script>

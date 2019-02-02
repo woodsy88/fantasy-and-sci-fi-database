@@ -3,23 +3,27 @@
 	    <% if @books.count == 0 %>
 	        <h3>THere are no books currently in this category</h3>
 	      <% else %>
-	        <% @books.each do |book| %>
-	          <div class="col-md-4 d-flex">
-	            <div class="card w-100" >
-	              <div class="card-body flex-fill">
-	                <h2 class="card-title"><%= book.title %></h2>
-	                  <% if book.category.present?  %>
-	                    <strong><%= book.category.name %></strong>
-	                  <% end %>         
-	               
-	              </div>
-
-                <div class="card-footer">
-                   <%= link_to "view book", book_path(book), class: "btn btn-primary" %>
-                   <%= link_to "edit book", edit_book_path(book), class: "btn btn-warning" %>
-                </div>
-	            </div>
-	          </div>  
-	        <% end %>
+	      <div class="row">
+	          <% @books.each do |book| %>
+  	          <div class="col-md-4 d-flex">
+  	            <div class="card w-100" >
+  	              <div class="card-body flex-fill">
+  	                <h2 class="card-title"><%= book.title %></h2>
+  	                  <% if book.category.present?  %>
+  	                    <strong><%= book.category.name %></strong>
+  	                  <% end %>         
+  	               
+  	              </div>
+  
+                  <div class="card-footer">
+                     <%= link_to "view book", book_path(book), class: "btn btn-primary" %>
+                  
+                     <%= link_to "edit book", edit_book_path(book), class: "btn btn-warning" if user_signed_in? && book.user_id == current_user.id  %>
+                    
+                  </div>
+  	            </div>
+  	          </div>  
+  	        <% end %>
+	      </div>
 	    <% end %>
 </div>  

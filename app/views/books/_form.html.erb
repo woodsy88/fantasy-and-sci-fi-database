@@ -1,5 +1,10 @@
+<div class="container mt-5">
+  
+<div class="row justify-content-md-center">
+<div class="col-md-8">
+    <div class="card">
+    <div class="card-body">
 <%= render 'shared/errors', obj: @book %>
-
 <%= form_for @book, class: "form-horizontal" do |f| %>
     <div class="form-group">
       <%= f.label :title, class: " col-sm-2 control-label" %>
@@ -7,7 +12,7 @@
     </div>
     <div class="form-group">
         <%= f.label :description, class: " col-sm-2 control-label" %>
-        <%= f.text_field :description, class: "form-control" %>
+        <%= f.text_area :description, class: "form-control" %>
     </div>
 
     <div class="form-group">
@@ -21,3 +26,8 @@
         </div>
     </div>
 <% end %>
+    </div>
+    </div>
+</div>
+  </div>
+</div>

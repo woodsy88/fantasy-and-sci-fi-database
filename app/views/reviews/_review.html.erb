@@ -1,0 +1,33 @@
+<div class="container">
+<div class="row">
+  <div class="card w-100 mb-4">
+    <div class="card-body">
+      <div class="review-rating" data-score="<%= review.rating %>"></div>
+      <%= review.comment %>
+    </div>
+    <% if user_signed_in? %>
+      <% if review.user_id == current_user.id %>
+          <div class="card-footer">
+              <div classs="btn btn-group">
+                <%= link_to 'Edit Review', edit_book_review_path(review.book, review), class: "btn-outline-warning" %>
+                <%= link_to 'Delete', book_review_path(review.book, review), 
+                              method: :delete,
+                              data: { confirm: "Are you sure?" },
+                              class: "btn-outline-danger" %>
+              </div>
+          </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<script>
+	    $('.review-rating').raty({
+	      path: '/assets/',
+	      readOnly: true,
+	      score: function() {
+	            return $(this).attr('data-score');
+	    }
+	  });
+</script>

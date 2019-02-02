@@ -1,11 +1,13 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
     <div class="col-md-12">
-      <div class="card">
+      <div class="card w-100 m-b-3">
         <div class="card-body">
           <h2> <%= @book.title %></h2>
           <%= @book.description %>
           <% if @book.category.present?  %>
+        <div class="average-review-rating" data-score="<%= @average_review %>"></div>
+        <span class="number-of-reviews">From <%= @book.reviews.count %> reviews</span>          
 	            <strong><%= @book.category.name %></strong>
 	          <% end %>          
         </div>
@@ -19,6 +21,36 @@
           <% end %>  
         <% end %>
       </div>
+	    </div>
+
     </div>
+    <%= link_to 'Add a Review', new_book_review_path(@book), class: "btn btn-outline-info mt-3" if user_signed_in? %>
+
+	    <% if @book.reviews.any? %>
+	        <div class="row mt-5">
+	          <div class="col-md-12">
+	            <h1>Reviews</h1>
+	              <%= render @book.reviews %>
+	          </div>
+	        </div>
+	    <% end %>
+	
+
+	  
+
+
+
+
+
+
   </div>
-</div>
+
+<script>
+	    $('.average-review-rating').raty({
+	      path: '/assets/',
+	      readOnly: true,
+	      score: function() {
+	            return $(this).attr('data-score');
+	    }
+	  });
+</script>

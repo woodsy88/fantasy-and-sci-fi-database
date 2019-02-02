@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   
   resources :series
-  resources :books
+
   resources :categories
+
+  resources :books do
+    resources :reviews
+  end
   
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
