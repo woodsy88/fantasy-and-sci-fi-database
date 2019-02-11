@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :books do
     resources :reviews
+    resource :likes, module: :books
   end
   
   devise_scope :user do

@@ -6,20 +6,25 @@
 	      <div class="row">
 	          <% @books.each do |book| %>
   	          <div class="col-md-4 d-flex">
-  	            <div class="card w-100" >
+  	            <div class="card w-100 mb-4" >
   	              <div class="card-body flex-fill">
   	                <h2 class="card-title"><%= book.title %></h2>
+					  <p id="book_<%= book.id %>_likes"><%= render partial: 'likes', locals: {book: book} %></p>
   	                  <% if book.category.present?  %>
   	                    <strong><%= book.category.name %></strong>
-  	                  <% end %>         
-  	               
-  	              </div>
-  
+  	                  <% end %>    
+										<div>
+											<% if book.reviews.blank? %>
+												<p class="text-muted text-tiny">there are no reviews yet</p>
+											<% else %>
+												<% average_review = book.reviews.average(:rating).round(2) %>
+												<div class="average-review-rating" data-score="<%= average_review %>"></div>
+											<% end %>
+										</div>											      
+  	              </div>			
                   <div class="card-footer">
-                     <%= link_to "view book", book_path(book), class: "btn btn-primary" %>
-                  
-                     <%= link_to "edit book", edit_book_path(book), class: "btn btn-warning" if user_signed_in? && book.user_id == current_user.id  %>
-                    
+                     <%= link_to "view book", book_path(book), class: "btn btn-primary" %>  
+                     <%= link_to "edit book", edit_book_path(book), class: "btn btn-warning" if user_signed_in? && book.user_id == current_user.id  %>     
                   </div>
   	            </div>
   	          </div>  
@@ -27,3 +32,14 @@
 	      </div>
 	    <% end %>
 </div>  
+
+
+<script>
+	    $('.average-review-rating').raty({
+	      path: '/assets/',
+	      readOnly: true,
+	      score: function() {
+	            return $(this).attr('data-score');
+	    }
+	  });
+</script>
