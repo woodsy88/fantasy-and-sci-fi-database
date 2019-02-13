@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :series
+  resources :collections
 
   resources :categories
 
