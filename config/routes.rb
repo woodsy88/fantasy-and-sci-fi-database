@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   
-  resources :collections
+  resources :collections do
+    resources :comments, module: :collections
+  end
 
   resources :categories
 
   resources :books do
     resources :reviews
+    resources :comments, module: :books
     resource :likes, module: :books
   end
   
