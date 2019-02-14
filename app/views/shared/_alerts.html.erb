@@ -5,5 +5,5 @@
 <% elsif flash[:success] %>
   <%= js add_gritter(flash[:success], title: "FSFdb Success", sticky: false) %>
 <% else %>
-  <%= js add_gritter(flash[:notice], title: "FSFdb", sticky: false) %>
+  <%= js add_gritter(flash[:notice], title: "FSFdb", sticky: false, time: 1000) %>
 <% end %>
