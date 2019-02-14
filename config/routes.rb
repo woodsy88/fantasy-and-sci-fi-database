@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  devise_for :users, :controllers => {:registrations => "registrations"}  
+  devise_for :users, path: 'u', :controllers => {:registrations => "registrations"}  
 
   root to: 'pages#home'
 end
