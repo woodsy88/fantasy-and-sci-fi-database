@@ -72,7 +72,7 @@ class BooksController < ApplicationController
 
   def bookmark
     current_user.events.create(action: "bookmarked", eventable: @book)
-    redirect_to books_path, notice: "you booked marked #{@book.title} "
+    redirect_to books_path, notice: "you booked marked #{@book.title}"
   end
     
   private
