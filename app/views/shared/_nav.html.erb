@@ -26,7 +26,10 @@
   </ul>
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <a class="nav-link">Right Link 1</a>
+      <%= link_to "Activity", events_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Users", users_path, class: "nav-link" %>
     </li>
    <% if user_signed_in? %> 
     <li class="nav-item dropdown">

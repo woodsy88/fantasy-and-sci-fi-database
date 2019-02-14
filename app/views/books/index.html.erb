@@ -20,7 +20,8 @@
 												<% average_review = book.reviews.average(:rating).round(2) %>
 												<div class="average-review-rating" data-score="<%= average_review %>"></div>
 											<% end %>
-										</div>											      
+										</div>	
+										<%= link_to 'Bookmark', bookmark_book_path(book), method: :post %>										      
   	              </div>			
                   <div class="card-footer">
                      <%= link_to "view book", book_path(book), class: "btn btn-primary" %>  

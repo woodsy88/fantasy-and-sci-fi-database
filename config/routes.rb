@@ -6,10 +6,22 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :events
+
+  resources :users do
+    member do
+      post :follow
+    end
+  end
+
   resources :books do
     resources :reviews
     resources :comments, module: :books
     resource :likes, module: :books
+
+    member do
+      post :bookmark
+    end
   end
   
   devise_scope :user do

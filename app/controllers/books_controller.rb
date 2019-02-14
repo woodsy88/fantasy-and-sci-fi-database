@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :bookmark]
   before_action :authenticate_user!, only: [ :new, :edit ]
 
 
@@ -69,9 +69,12 @@ class BooksController < ApplicationController
       @average_review = @book.reviews.average(:rating).round(2)
     end
   end
+
+  def bookmark
+    current_user.events.create(action: "bookmarked", eventable: @book)
+    redirect_to books_path, notice: "you booked marked #{@book.title} "
+  end
     
-  
-  
   private
 
     def set_book

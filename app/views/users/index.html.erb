@@ -1,0 +1,15 @@
+<div class="container">
+<div class="row">
+    <% @users.each do |user| %>
+      <div class="col-md-4 d-flex">
+        <div class="card w-100 mb-4" >
+          <div class="card-body flex-fill"> 
+            <h2 class="card-title"><%= image_tag user.avatar_url, width: 20 %><%= user.name.full %></h2>
+            <%= link_to 'Follow User', follow_user_path(user), method: :post %>
+          </div>   
+        </div>   
+      </div>   
+    
+    <% end %>
+</div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container pt-4">
+  <div class="row">
+<% @events.each do |event| %>
+<div class="col-md-12 d-flex">
+    <div class="card w-100 mb-4">
+     <div class="card-body">
+     <!-- check if the template exists before trying to render it from events/activities -->
+     <% if lookup_context.template_exists?(event.action, "events/activities", true) %>
+        <!-- taking the actions text string for the name of the partial to call. ie "_bookmarked, _followed" -->
+        <%= render partial: "events/activities/#{event.action}", locals: {event: event} %>
+     <% end %>
+      </div>
+      <div class="card-footer">
+        <%= link_to "Delete", event_path(event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </div>
+    </div>
+</div>
+<% end %>
+
+</div>
+</div>
