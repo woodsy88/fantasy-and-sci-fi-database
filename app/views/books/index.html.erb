@@ -21,12 +21,15 @@
 												<div class="average-review-rating" data-score="<%= average_review %>"></div>
 											<% end %>
 										</div>	
-										<%= link_to 'Bookmark', bookmark_book_path(book), method: :post %>										      
+																			      
   	              </div>			
-                  <div class="card-footer">
-                     <%= link_to "view book", book_path(book), class: "btn btn-primary" %>  
-                     <%= link_to "edit book", edit_book_path(book), class: "btn btn-warning" if user_signed_in? && book.user_id == current_user.id  %>     
-                  </div>
+							<% if user_signed_in? %>
+	                  <div class="card-footer">
+												<%= link_to 'Bookmark', bookmark_book_path(book), method: :post %>
+	                     <%= link_to "view book", book_path(book), class: "btn btn-primary" %>  
+	                     <%= link_to "edit book", edit_book_path(book), class: "btn btn-warning" if user_signed_in? && book.user_id == current_user.id  %>     
+	                  </div>
+							<% end %>
   	            </div>
   	          </div>  
   	        <% end %>
