@@ -13,9 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-
 //= require local-time
 //= require jquery3
+//= require jquery.atwho
 //= require gritter
 //= require popper
 //= require bootstrap-sprockets

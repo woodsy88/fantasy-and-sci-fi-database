@@ -7,4 +7,7 @@ class Book < ApplicationRecord
   has_many :comments, as: :commentable
 
   validates_presence_of :description, :title
+
+
+
 end

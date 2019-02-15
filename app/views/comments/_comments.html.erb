@@ -1,5 +1,7 @@
 <% commentable.comments.each do |comment| %>
   <div class="card">
-  <%= comment.body %>
+  <%= linked_users comment.body %>
+  <%= comment.id %>
+  <%= comment.mentioned_users %>
   </div>
 <% end %>

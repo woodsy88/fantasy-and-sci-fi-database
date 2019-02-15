@@ -1,6 +1,6 @@
 <%= form_for [ commentable, Comment.new ] do |f| %>
   <div class="form-group">
-    <%= f.text_area :body, class: "form-control", placeholder: "add a comment" %>
+    <%= f.text_area :body, data: {behavior: "autocomplete" }, class: "form-control", placeholder: "add a comment" %>
   </div>
   <%= f.submit class: "btn btn-primary" %>
 <% end  %>

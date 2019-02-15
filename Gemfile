@@ -79,3 +79,5 @@ gem 'local_time', '~> 2.1'
 gem 'gritter', '~> 1.2'
 
 gem 'pundit', '~> 2.0'
+
+gem 'jquery-atwho-rails', '~> 1.5', '>= 1.5.4'
