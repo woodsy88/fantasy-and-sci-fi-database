@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :events
 
   has_many :notifications, foreign_key: :recipient_id
+
+  validates :email, confirmation: true, presence: true
   
   
   def likes?(book)

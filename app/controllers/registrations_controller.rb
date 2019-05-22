@@ -8,7 +8,8 @@ private
                                  :avatar,
                                  :email, 
                                  :password, 
-                                 :password_confirmation, 
+                                 :password_confirmation,
+                                 :email_confirmation, 
                                  :username)
   end
 
