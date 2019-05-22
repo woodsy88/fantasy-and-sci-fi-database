@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :reviews  
 
   has_many :events
+
+  has_many :notifications, foreign_key: :recipient_id
   
   
   def likes?(book)

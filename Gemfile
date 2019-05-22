@@ -81,3 +81,7 @@ gem 'gritter', '~> 1.2'
 gem 'pundit', '~> 2.0'
 
 gem 'jquery-atwho-rails', '~> 1.5', '>= 1.5.4'
+
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+gem 'acts_as_list', '~> 0.9.19'
