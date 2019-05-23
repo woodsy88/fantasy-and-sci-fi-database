@@ -20,6 +20,7 @@ private
                                  :email, 
                                  :password, 
                                  :password_confirmation, 
+                                 :email_confirmation, 
                                  :current_password, 
                                  :username)
   end
